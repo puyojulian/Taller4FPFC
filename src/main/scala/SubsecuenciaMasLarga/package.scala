@@ -8,18 +8,15 @@ package object SubsecuenciaMasLarga {
   // esta secuencia de indices representa la subsecuencia Seq(s[i1], s[i2], s[i3]) de s
 
   def subindices(i: Int, n: Int): Set[Seq[Int]] = {
-    def generateSublists(list: List[Int]): List[List[Int]] = {
-      list match {
-        case Nil => List(Nil) // Return an empty sublist for an empty list
-        case head :: tail =>
-          val tailSublists = generateSublists(tail)
-          val withHead = tailSublists.map(head :: _)
-          tailSublists ++ withHead
-      }
+    def generateSublistsWithFor(list: List[Int]): IndexedSeq[List[Int]] = {
+      for {
+        n <- 0 to list.length
+        sublist <- list.combinations(n)
+      } yield sublist
     }
 
     // dados i y n devuelve todas las posibles secuencias crecientes de enteros entre i y n
-    (for(j <- i until n; k <- j until n) yield (j to k).toList).flatMap(generateSublists).toSet
+    (for(j <- i until n; k <- j until n) yield (j to k).toList).flatMap(generateSublistsWithFor).toSet
   }
 
   def subSecuenciaAsoc(s: Secuencia, inds: Seq[Int]): Subsecuencia = {

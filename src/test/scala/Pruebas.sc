@@ -1,7 +1,7 @@
 import SubsecuenciaMasLarga._
 
 subindices(2,3)
-subindices(0,6)
+subindices(0,3)
 //subSecuenciasDe(Seq(20,30,10))
 //subSecuenciasInc(Seq(20,30,10))
 //subSecuenciasInc(Seq(10,20,30))
