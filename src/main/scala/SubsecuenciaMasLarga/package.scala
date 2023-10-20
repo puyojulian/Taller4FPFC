@@ -65,7 +65,11 @@ package object SubsecuenciaMasLarga {
   }
 
   def ssimlComenzandoEn(i: Int, s: Secuencia): Subsecuencia = {
-  // Devuelve la subsecuencia incremental mas larga de s que comienza en s(i)
+    // Devuelve la subsecuencia incremental mas larga de s que comienza en s(i)
+    (for {
+      x <- i until s.length-1
+      if (s(i) < s(x+1) && s(x) < s(x+1))
+    } yield s(x+1)).toList.prepended(s(i))
   }
 
 //  def subSecIncMasLargaV2(s: Secuencia): Subsecuencia = {
