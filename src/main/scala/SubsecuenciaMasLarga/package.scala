@@ -8,44 +8,53 @@ package object SubsecuenciaMasLarga {
   // esta secuencia de indices representa la subsecuencia Seq(s[i1], s[i2], s[i3]) de s
 
   def subindices(i: Int, n: Int): Set[Seq[Int]] = {
-    def generateSublistsWithFor(list: List[Int]): IndexedSeq[List[Int]] = {
-      for {
-        n <- 0 to list.length
-        sublist <- list.combinations(n)
-      } yield sublist
-    }
-
     // dados i y n devuelve todas las posibles secuencias crecientes de enteros entre i y n
-    (for(j <- i until n; k <- j until n) yield (j to k).toList).flatMap(generateSublistsWithFor).toSet
+    val list = (i until n).toList
+    (for {
+      n <- 0 to list.length
+      sublist <- list.combinations(n)
+    } yield sublist).toSet
   }
 
-  def subSecuenciaAsoc(s: Secuencia, inds: Seq[Int]): Subsecuencia = {
-  // Dadas s, una secuencia, e inds, una secuencia creciente de indices asociada a s,
-  // Devuelve la secuencia correspondiente a la secuencia creciente de indices inds
-  }
+//  def subindices(i: Int, n: Int): Set[Seq[Int]] = {
+//    def generateSublistsWithFor(list: List[Int]): IndexedSeq[List[Int]] = {
+//      for {
+//        n <- 0 to list.length
+//        sublist <- list.combinations(n)
+//      } yield sublist
+//    }
+//
+//    // dados i y n devuelve todas las posibles secuencias crecientes de enteros entre i y n
+//    (for(j <- i until n; k <- j until n) yield (j to k).toList).flatMap(generateSublistsWithFor).toSet
+//  }
 
-  def subSecuenciasDe(s: Secuencia): Set[Subsecuencia] = {
-  // Dada s , devuelve el conjunto de todas las subsecuencias posibles de s
-  }
-
-  def incremental(s: Subsecuencia): Boolean = {
-
-  }
-
-  def subSecuenciasInc(s: Secuencia): Set[Subsecuencia] = {
-
-  }
-
-  def subsecuenciaIncrementalMasLarga(s: Secuencia): Subsecuencia = {
-
-  }
-
-  def ssimlComenzandoEn(i: Int, s: Secuencia): Subsecuencia = {
-  // Devuelve la subsecuencia incremental mas larga de s que comienza en s(i)
-  }
-
-  def subSecIncMasLargaV2(s: Secuencia): Subsecuencia = {
-    // Devuelve una subsecuencia incremental mas larga de s
-  }
+//  def subSecuenciaAsoc(s: Secuencia, inds: Seq[Int]): Subsecuencia = {
+//  // Dadas s, una secuencia, e inds, una secuencia creciente de indices asociada a s,
+//  // Devuelve la secuencia correspondiente a la secuencia creciente de indices inds
+//  }
+//
+//  def subSecuenciasDe(s: Secuencia): Set[Subsecuencia] = {
+//  // Dada s , devuelve el conjunto de todas las subsecuencias posibles de s
+//  }
+//
+//  def incremental(s: Subsecuencia): Boolean = {
+//
+//  }
+//
+//  def subSecuenciasInc(s: Secuencia): Set[Subsecuencia] = {
+//
+//  }
+//
+//  def subsecuenciaIncrementalMasLarga(s: Secuencia): Subsecuencia = {
+//
+//  }
+//
+//  def ssimlComenzandoEn(i: Int, s: Secuencia): Subsecuencia = {
+//  // Devuelve la subsecuencia incremental mas larga de s que comienza en s(i)
+//  }
+//
+//  def subSecIncMasLargaV2(s: Secuencia): Subsecuencia = {
+//    // Devuelve una subsecuencia incremental mas larga de s
+//  }
 
 }
