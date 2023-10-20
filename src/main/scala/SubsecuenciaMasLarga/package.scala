@@ -27,27 +27,30 @@ package object SubsecuenciaMasLarga {
 
   def subSecuenciasDe(s: Secuencia): Set[Subsecuencia] = {
   // Dada s , devuelve el conjunto de todas las subsecuencias posibles de s
-
+    (for{
+      listaIndices <- subindices(0,s.length)
+    }
+    yield subSecuenciaAsoc(s,listaIndices)).toSet
   }
 
-  def incremental(s: Subsecuencia): Boolean = {
+//  def incremental(s: Subsecuencia): Boolean = {
+//
+//  }
 
-  }
-
-  def subSecuenciasInc(s: Secuencia): Set[Subsecuencia] = {
-
-  }
-
-  def subsecuenciaIncrementalMasLarga(s: Secuencia): Subsecuencia = {
-
-  }
-
-  def ssimlComenzandoEn(i: Int, s: Secuencia): Subsecuencia = {
-  // Devuelve la subsecuencia incremental mas larga de s que comienza en s(i)
-  }
-
-  def subSecIncMasLargaV2(s: Secuencia): Subsecuencia = {
-    // Devuelve una subsecuencia incremental mas larga de s
-  }
+//  def subSecuenciasInc(s: Secuencia): Set[Subsecuencia] = {
+//
+//  }
+//
+//  def subsecuenciaIncrementalMasLarga(s: Secuencia): Subsecuencia = {
+//
+//  }
+//
+//  def ssimlComenzandoEn(i: Int, s: Secuencia): Subsecuencia = {
+//  // Devuelve la subsecuencia incremental mas larga de s que comienza en s(i)
+//  }
+//
+//  def subSecIncMasLargaV2(s: Secuencia): Subsecuencia = {
+//    // Devuelve una subsecuencia incremental mas larga de s
+//  }
 
 }
