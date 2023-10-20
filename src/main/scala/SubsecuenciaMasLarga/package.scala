@@ -27,10 +27,10 @@ package object SubsecuenciaMasLarga {
 
   def subSecuenciasDe(s: Secuencia): Set[Subsecuencia] = {
   // Dada s , devuelve el conjunto de todas las subsecuencias posibles de s
-    (for{
+    for{
       listaIndices <- subindices(0,s.length)
     }
-    yield subSecuenciaAsoc(s,listaIndices)).toSet
+    yield subSecuenciaAsoc(s,listaIndices)
   }
 
   def incremental(s: Subsecuencia): Boolean = {
@@ -41,10 +41,14 @@ package object SubsecuenciaMasLarga {
     } yield (s(x) < s(y))).foldLeft(true)(_ && _)
   }
 
-//  def subSecuenciasInc(s: Secuencia): Set[Subsecuencia] = {
-//
-//  }
-//
+  def subSecuenciasInc(s: Secuencia): Set[Subsecuencia] = {
+    for{
+      subS <- subSecuenciasDe(s)
+      if incremental(subS)
+    }
+    yield subS
+  }
+
 //  def subsecuenciaIncrementalMasLarga(s: Secuencia): Subsecuencia = {
 //
 //  }
