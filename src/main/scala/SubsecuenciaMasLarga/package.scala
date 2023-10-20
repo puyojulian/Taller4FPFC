@@ -33,9 +33,13 @@ package object SubsecuenciaMasLarga {
     yield subSecuenciaAsoc(s,listaIndices)).toSet
   }
 
-//  def incremental(s: Subsecuencia): Boolean = {
-//
-//  }
+  def incremental(s: Subsecuencia): Boolean = {
+    // Dada una subsecuencia decida si es incremental(devuelve true) o no (devuelve false).
+    (for {
+      x <- 0 until s.length
+      y <- x+1 until s.length
+    } yield (s(x) < s(y))).foldLeft(true)(_ && _)
+  }
 
 //  def subSecuenciasInc(s: Secuencia): Set[Subsecuencia] = {
 //

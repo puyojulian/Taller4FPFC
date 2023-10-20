@@ -13,6 +13,15 @@ subSecuenciaAsoc(s,Seq(1,2,4,6))
 
 
 subSecuenciasDe(Seq(20,30,10))
+
+val s1 = Seq(20,30,40)
+incremental(s1)
+val s2 = Seq(20,30,10,40,15,16,17)
+incremental(s2)
+val s3 = Seq()
+incremental(s3)
+val s4 = Seq(4,5)
+incremental(s4)
 //subSecuenciasInc(Seq(20,30,10))
 //subSecuenciasInc(Seq(10,20,30))
 //subsecuenciaIncrementalMasLarga(Seq(20,30,10,40,15,16,17))
