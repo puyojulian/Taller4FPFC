@@ -49,10 +49,13 @@ package object SubsecuenciaMasLarga {
     yield subS
   }
 
-//  def subsecuenciaIncrementalMasLarga(s: Secuencia): Subsecuencia = {
-//
-//  }
-//
+  def subsecuenciaIncrementalMasLarga(s: Secuencia): Subsecuencia = {
+    (for{
+      subS <- subSecuenciasInc(s)
+    }
+    yield subS).maxBy(_.length)
+  }
+
 //  def ssimlComenzandoEn(i: Int, s: Secuencia): Subsecuencia = {
 //  // Devuelve la subsecuencia incremental mas larga de s que comienza en s(i)
 //  }
