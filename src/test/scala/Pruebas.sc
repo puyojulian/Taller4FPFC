@@ -26,7 +26,12 @@ incremental(s4)
 subSecuenciasInc(s)
 subSecuenciasInc(Seq(20,30,10))
 subSecuenciasInc(Seq(10,20,30))
-//subsecuenciaIncrementalMasLarga(Seq(20,30,10,40,15,16,17))
+subsecuenciaIncrementalMasLarga(Seq(20,30,10,40,15,16,17))
+subsecuenciaIncrementalMasLarga(Seq(20,30,10))
+
+subsecuenciaIncrementalMasLarga2(Seq(20,30,10,40,15,16,17))
+subsecuenciaIncrementalMasLarga2(Seq(20,30,10))
+
 //subSecIncMasLargaV2(Seq(20,30,10,40,15,16,17))
 //subsecuenciaIncrementalMasLarga(Seq(20,30,10,40,15,16,17,11,12,13,14))
 //subSecIncMasLargaV2(Seq(20,30,10,40,15,16,17,11,12,13,14))
