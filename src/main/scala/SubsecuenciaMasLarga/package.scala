@@ -9,11 +9,11 @@ package object SubsecuenciaMasLarga {
 
   def subindices(i: Int, n: Int): Set[Seq[Int]] = {
     // dados i y n devuelve todas las posibles secuencias crecientes de enteros entre i y n
-    val list = (i until n).toList
+    val indices = (i until n).toList
     (for {
-      n <- 0 to list.length
-      sublist <- list.combinations(n)
-    } yield sublist).toSet
+      tamIndice <- 0 to indices.length
+      sublista <- indices.combinations(tamIndice)
+    } yield sublista).toSet
   }
 
   def subSecuenciaAsoc(s: Secuencia, inds: Seq[Int]): Subsecuencia = {
@@ -43,17 +43,17 @@ package object SubsecuenciaMasLarga {
 
   def subSecuenciasInc(s: Secuencia): Set[Subsecuencia] = {
     for{
-      subS <- subSecuenciasDe(s)
-      if incremental(subS)
+      subsecuencia <- subSecuenciasDe(s)
+      if incremental(subsecuencia)
     }
-    yield subS
+    yield subsecuencia
   }
 
   def subsecuenciaIncrementalMasLarga(s: Secuencia): Subsecuencia = {
     (for{
-      subS <- subSecuenciasInc(s)
+      subSIncremental <- subSecuenciasInc(s)
     }
-    yield subS).maxBy(_.length)
+    yield subSIncremental).maxBy(_.length)
   }
 
   def subsecuenciaIncrementalMasLarga2(s: Seq[Int]): Seq[Int] = {
@@ -71,11 +71,11 @@ package object SubsecuenciaMasLarga {
   def ssimlComenzandoEn(i: Int, s: Secuencia): Subsecuencia = {
     // Devuelve la subsecuencia incremental mas larga de s que comienza en s(i)
     (for {
-      x <- i until s.length
-    } yield s.drop(x).foldLeft(List(s(i))) {
-      (acc, x) =>
-        if (acc.last < x)
-          acc :+ x
+      j <- i until s.length
+    } yield s.drop(j).foldLeft(List(s(i))) {
+      (acc, j) =>
+        if (acc.last < j)
+          acc :+ j
         else
           acc
     }).maxBy(_.length)
