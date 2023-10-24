@@ -58,8 +58,9 @@ package object SubsecuenciaMasLarga {
 
   def subsecuenciaIncrementalMasLarga2(s: Seq[Int]): Seq[Int] = {
     (for {
-      subseq <- subSecuenciasInc(s)
-    } yield subseq).foldLeft(Seq.empty[Int]) {
+      subSIncremental <- subSecuenciasInc(s)
+    }
+    yield subSIncremental).foldLeft(Seq.empty[Int]) {
       (acc, subS) =>
         if (incremental(subS) && subS.length > acc.length)
           subS
