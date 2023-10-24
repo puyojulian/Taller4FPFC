@@ -74,9 +74,9 @@ package object SubsecuenciaMasLarga {
     (for {
       j <- i until s.length
     } yield s.drop(j).foldLeft(List(s(i))) {
-      (acc, j) =>
-        if (acc.last < j)
-          acc :+ j
+      (acc, s_j) =>
+        if (acc.last < s_j)
+          acc :+ s_j
         else
           acc
     }).maxBy(_.length)
