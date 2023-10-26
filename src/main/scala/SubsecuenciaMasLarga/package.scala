@@ -1,3 +1,11 @@
+/*
+  Archivo: package.scala
+  Autores:  Julian Ernesto Puyo Mora <julian.puyo@correounivalle.edu.co> <202226905>
+            Sebastian Orrego Marin <orrego.sebastian@correounivalle.edu.co> <201941144>
+  N° Taller: 04
+  Fecha de realización: 26/10/2023
+*/
+
 package object SubsecuenciaMasLarga {
   type Secuencia = Seq[Int]
   type Subsecuencia = Seq[Int]
